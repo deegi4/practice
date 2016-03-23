@@ -1,8 +1,6 @@
 package ru.skeetstation.golowach.javacore.Lec2Recursion;
 
-/**
- * Created by user on 19.03.2016.
- */
+
 public class ArrayInverterRec {
     public static void invertRec(int[] arr, int k) {
         if (k < arr.length / 2) {

@@ -2,9 +2,7 @@ package ru.skeetstation.golowach.javacore.Lec1Procedural;
 
 import java.util.Arrays;
 
-/**
- * Created by user on 18.03.2016.
- */
+
 public class MatrixUtils {
     public static int[][] mul(int[][] a, int[][] b) {
         if (a[0].length != b.length) return a;//умножение матриц невозможно
