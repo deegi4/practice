@@ -18,8 +18,7 @@ public class Parser {
                     count--;
                 }
             }
-
-                return eval(eval(expr.substring(1, pos)) + expr.substring(pos+1));
+            return eval(eval(expr.substring(1, pos)) + expr.substring(pos+1));
         } else {
             int pos = 0;
             while (pos < expr.length() - 1) {
