@@ -97,7 +97,30 @@ public class SingleLLUtils {
         if (tail == null) return false;
         if (tail.value == value) return true;
         return contains(tail.next, value);
+
+//        return tail == null ? false : tail.value == value ? true : contains(tail.next, value);
     }
+
+    public static  boolean isGrowing(Node tail, int startValue){
+        if (tail == null) return true;
+        if (tail.value > startValue) return isGrowing(tail.next, tail.value);
+        else return false;
+
+//        return tail == null ? true : tail.value > startValue ? isGrowing(tail.next, tail.value) : false;
+    }
+
+    public static int length(Node tail) {
+        return (tail == null) ? 0 : 1 + length(tail.next);
+    }
+
+    public static int max(Node tail) {
+        return (tail == null) ? 0 : Math.max(tail.value, max(tail.next));
+    }
+
+    public static int sum(Node tail) {
+        return (tail == null) ? 0 : tail.value + sum(tail.next);
+    }
+
 
     public static void main(String[] args) {
         Node tail = Node.genRec(0, 10, 20, 30);
@@ -113,6 +136,8 @@ public class SingleLLUtils {
         System.out.println("removeLast(tail): " + Node.toStringRec(tail));
         System.out.println("contaits(tail, 45): " + contains(tail, 45));
         System.out.println("contaits(tail, 25): " + contains(tail, 25));
+        System.out.println("isGrowing(tail, 0): " + isGrowing(tail, 0));
+
 
     }
 
