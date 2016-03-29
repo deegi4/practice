@@ -43,4 +43,26 @@ public class HttpUtils {
         }
     }
 
+    public static byte[] createRespone(String text) throws IOException {
+        String html = ""
+                + "<html>"
+                + "<body>"
+                + "<p style=\"color: #0000FF; font-size: 48pt\">"
+                + text
+                + "<p>"
+                + "<body>"
+                + "<html>";
+
+        ByteArrayOutputStream result = new ByteArrayOutputStream();
+        Writer writer = new OutputStreamWriter(result, "ISO-8859-1");
+        //http header
+        writer.write("HTTP/1.1 200 OK\r\n");
+        writer.write("Content-Type: text/html; charset=ISO-8859-1\r\n");
+        writer.write("Connection: close\r\n");
+        writer.write(html);
+        writer.flush();
+
+        return  result.toByteArray();
+    }
+
 }
